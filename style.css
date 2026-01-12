@@ -1,12 +1,12 @@
 #nav {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 70px;
-background-color: black;
-display: flex;
-flex-direction: inline;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    flex-direction: inline;
 }
 #left {
     left: 0;
@@ -29,18 +29,26 @@ flex-direction: inline;
     user-select: none;
 }
 #right > button {
-text-align: center;
-padding-inline: clamp(15px,2vw,20px);
-color: white;
-font-size: clamp(10px,2vw,25px);
-height: 100%;
-background-color: transparent;
-border: none;
-font-family: "Inter";
-transition: 0.3s ease;
+    text-align: center;
+    padding-inline: clamp(15px,2vw,20px);
+    color: white;
+    font-size: clamp(10px,2vw,25px);
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-family: "Inter";
+    transition: 0.3s ease;
 }
 #right > button:hover {
-cursor: pointer;
-background-color: rgb(48, 48, 48);
-transition: 0.3s ease;
+    cursor: pointer;
+    background-color: rgb(48, 48, 48);
+    transition: 0.3s ease;
+}
+h1 {
+    font-family: "Inter";
+}
+#jerry {
+    width: clamp(200px,40vw,800px);
+    border-top-right-radius: clamp(20px,2vw,40px);
+    border-bottom-right-radius: clamp(20px,2vw,40px);
 }
