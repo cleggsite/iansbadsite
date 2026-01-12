@@ -47,8 +47,31 @@
 h1 {
     font-family: "Inter";
 }
+h2 {
+    font-size: clamp(20px,4vw,60px)
+}
+#jerry-parry {
+    font-size: clamp(15px,3vw,45px);
+}
+#jerry-holder {
+    width: clamp(400px,60vw,1200px);
+    background-color: lightgray;
+    border-radius: clamp(20px,2vw,40px);
+    display: flex;
+    flex-direction: row;
+    font-family: "Inter";
+}
+#welcome-jerry-holder {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 0.1;
+}
 #jerry {
-    width: clamp(200px,40vw,800px);
+    right: 0;
+    width: 50%;
     border-top-right-radius: clamp(20px,2vw,40px);
     border-bottom-right-radius: clamp(20px,2vw,40px);
 }
