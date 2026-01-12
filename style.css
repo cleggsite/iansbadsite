@@ -10,6 +10,8 @@ flex-direction: inline;
 }
 #left {
     left: 0;
+    display: flex;
+    align-items: center;
 }
 #title {
     color: white;
@@ -17,11 +19,14 @@ flex-direction: inline;
     padding-inline: 20px;
     font-size: clamp(20px,3vw,30px);
     top: 0;
+    user-select: none;
+    cursor: default;
 }
 #right {
     position: absolute;
     height: 70px;
     right: 0;
+    user-select: none;
 }
 #right > button {
 text-align: center;
