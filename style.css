@@ -34,7 +34,7 @@ body {
     right: 0;
     user-select: none;
 }
-#right > button {
+#right > a > button {
     text-align: center;
     padding-inline: clamp(15px,2vw,20px);
     color: white;
@@ -44,8 +44,12 @@ body {
     border: none;
     font-family: "Inter";
     transition: 0.3s ease;
+    background-color: black;
+    border: none;
+    height: 100%;
+    color: white;
 }
-#right > button:hover {
+#right > a > button:hover {
     cursor: pointer;
     background-color: rgb(48, 48, 48);
     transition: 0.3s ease;
