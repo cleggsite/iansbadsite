@@ -1,8 +1,15 @@
 body {
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: repeating-linear-gradient(
+        45deg,
+        rgb(231, 231, 231),
+        rgb(231, 231, 231) 50px,
+        rgb(224, 224, 224) 50px,
+        rgb(224, 224, 224) 100px
+    );
 }
 #nav {
     position: fixed;
@@ -72,6 +79,7 @@ h2 {
     display: flex;
     flex-direction: row;
     font-family: "Inter";
+    box-shadow: 0px 0px 20px rgba(36, 36, 36, 0.6);
 }
 #welcome-jerry-holder {
     width: 50%;
