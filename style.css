@@ -22,6 +22,7 @@ body {
     background-color: black;
     display: flex;
     flex-direction: inline;
+    z-index: 100;
 }
 #left {
     left: 0;
