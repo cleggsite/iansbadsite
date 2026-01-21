@@ -11,7 +11,7 @@ body {
         rgb(224, 224, 224) 100px
     );
     user-select: none;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 #nav {
     position: fixed;
@@ -114,4 +114,8 @@ h2 {
     border-radius: clamp(15px, 3vw, 30px);
     padding: 0;
     transition: 0.1s ease-out;
+}
+#upgrade {
+    width: clamp(200px, 35vw, 350px);
+    line-height: .5;
 }
