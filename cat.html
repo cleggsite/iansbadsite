@@ -27,35 +27,48 @@
     <h2 id="clicks">Clicks : </h2><br>
     <button id="upgrade" onclick="petter()"><h4>Cat petter : <span id="pCount"></span></h4><h4><span id="pCost"></span></h4><h5>1 CPS</h5></button><br>
     <button id="upgrade" onclick="feeder()"><h4>Cat feeder : <span id="fCount"></span></h4><h4><span id="fCost"></span></h4><h5>5 CPS</h5></button><br>
-    <button id="upgrade" onclick="sitter()"><h4>Cat sitter</h4><h5>10 CPS</h5></button><br>
-    <button id="upgrade" onclick="breeder()"><h4>Cat breeder</h4><h5>25 CPS</h5></button><br>
-    <button id="upgrade" onclick="factory()"><h4>Cat factory</h4><h5>75 CPS</h5></button><br>
+    <button id="upgrade" onclick="sitter()"><h4>Cat sitter : <span id="sCount"></span></h4><h4><span id="sCost"></span></h4><h5>20 CPS</h5></button><br>
+    <button id="upgrade" onclick="breeder()"><h4>Cat breeder : <span id="bCount"></span></h4><h4><span id="bCost"></span></h4><h5>100 CPS</h5></button><br>
+    <button id="upgrade" onclick="meme()"><h4>Cat meme : <span id="mCount"></span></h4><h4><span id="mCost"></span></h4><h5>500 CPS</h5></button><br>
     <script>
         var clicks = localStorage.getItem('clicks');
         clicks++;
+        clicks--;
         function initLocalStorage(key, value) {
         if (localStorage.getItem(key) === null) {
             localStorage.setItem(key, value);
         }
         }
-        initLocalStorage("petterCost", 20);
+        initLocalStorage("petterCost", 50);
         initLocalStorage("petters", 0);
-        initLocalStorage("feederCost", 75);
+        initLocalStorage("feederCost", 200);
         initLocalStorage("feeders", 0);
+        initLocalStorage("sitterCost", 1500);
+        initLocalStorage("sitters", 0);
+        initLocalStorage("breederCost", 5000);
+        initLocalStorage("breeders", 0);
+        initLocalStorage("memeCost", 20000);
+        initLocalStorage("memes", 0);
         var petters = localStorage.getItem("petters");
         var feeders = localStorage.getItem("feeders");
         var sitters = localStorage.getItem("sitters");
         var breeders = localStorage.getItem("breeders");
-        var factories = localStorage.getItem("factories");
-        var petterCost = Number(localStorage.getItem("petterCost")) || 20;
-        var feederCost = Number(localStorage.getItem("feederCost")) || 75;
-        var sitterCost = localStorage.getItem("sitterCost");
-        var breederCost = localStorage.getItem("breederCost");
-        var factoryCost = localStorage.getItem("factoryCost");
+        var memes = localStorage.getItem("memes");
+        var petterCost = Number(localStorage.getItem("petterCost")) || 50;
+        var feederCost = Number(localStorage.getItem("feederCost")) || 200;
+        var sitterCost = Number(localStorage.getItem("sitterCost")) || 1500;
+        var breederCost = Number(localStorage.getItem("breederCost")) || 5000;
+        var memeCost = Number(localStorage.getItem("memeCost")) || 20000;
         document.getElementById("pCost").innerHTML = "$" + Number(petterCost.toFixed(0));
         document.getElementById("pCount").innerHTML = petters;
         document.getElementById("fCost").innerHTML = "$" + Number(feederCost.toFixed(0));
         document.getElementById("fCount").innerHTML = feeders;
+        document.getElementById("sCost").innerHTML = "$" + Number(sitterCost.toFixed(0));
+        document.getElementById("sCount").innerHTML = sitters;
+        document.getElementById("bCost").innerHTML = "$" + Number(breederCost.toFixed(0));
+        document.getElementById("bCount").innerHTML = breeders;
+        document.getElementById("mCost").innerHTML = "$" + Number(memeCost.toFixed(0));
+        document.getElementById("mCount").innerHTML = memes;
         document.getElementById("clicks").innerHTML = "Clicks : " + Number(clicks.toFixed(0));
         function catClicked() {
             document.getElementById("catbutt").style.transform = "scale(1.05)";
@@ -69,7 +82,7 @@
             if (clicks > petterCost) {
                 clicks -= petterCost;
                 petters++;
-                petterCost = petterCost*1.25;
+                petterCost = petterCost*1.15;
                 document.getElementById("pCost").innerHTML = "$" + Number(petterCost.toFixed(0));
                 document.getElementById("pCount").innerHTML = petters;
                 localStorage.setItem("clicks", clicks);
@@ -81,7 +94,7 @@
             if (clicks > feederCost) {
                 clicks -= feederCost;
                 feeders++;
-                feederCost = feederCost*1.25;
+                feederCost = feederCost*1.15;
                 document.getElementById("fCost").innerHTML = "$" + Number(feederCost.toFixed(0));
                 document.getElementById("fCount").innerHTML = feeders;
                 localStorage.setItem("clicks", clicks);
@@ -89,8 +102,44 @@
                 localStorage.setItem("feederCost", feederCost);
             }
         }
+        function sitter() {
+            if (clicks > sitterCost) {
+                clicks -= sitterCost;
+                sitters++;
+                sitterCost = sitterCost*1.15;
+                document.getElementById("sCost").innerHTML = "$" + Number(sitterCost.toFixed(0));
+                document.getElementById("sCount").innerHTML = sitters;
+                localStorage.setItem("clicks", clicks);
+                localStorage.setItem("sitters", sitters);
+                localStorage.setItem("sitterCost", sitterCost);
+            }
+        }
+        function breeder() {
+            if (clicks > breederCost) {
+                clicks -= breederCost;
+                breeders++;
+                breederCost = breederCost*1.15;
+                document.getElementById("bCost").innerHTML = "$" + Number(breederCost.toFixed(0));
+                document.getElementById("bCount").innerHTML = breeders;
+                localStorage.setItem("clicks", clicks);
+                localStorage.setItem("breeders", breeders);
+                localStorage.setItem("breederCost", breederCost);
+            }
+        }
+        function meme() {
+            if (clicks > memeCost) {
+                clicks -= memeCost;
+                memes++;
+                memeCost = memeCost*1.15;
+                document.getElementById("mCost").innerHTML = "$" + Number(memeCost.toFixed(0));
+                document.getElementById("mCount").innerHTML = memes;
+                localStorage.setItem("clicks", clicks);
+                localStorage.setItem("memes", memes);
+                localStorage.setItem("memeCost", memeCost);
+            }
+        }
         setInterval(function () {
-            clicks += petters*1 + feeders*5 + sitters*10 + breeders*25 + factories*75;
+            clicks += petters*1 + feeders*5 + sitters*20 + breeders*100 + memes*500;
             localStorage.setItem("clicks", clicks);
             document.getElementById("clicks").innerHTML = "Clicks : " + Number(clicks.toFixed(0));
         }, 1000);
