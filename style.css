@@ -67,10 +67,12 @@ body {
 h1 {
     font-family: "Inter";
     font-size: clamp(25px,5vw,65px);
+    line-height: 0.2;
 }
 h2 {
     font-size: clamp(20px,4vw,60px);
     font-family: "Inter";
+    line-height: 0.2;
 }
 #jerry-parry {
     font-size: clamp(15px,3vw,45px);
@@ -118,5 +120,14 @@ h2 {
 }
 #upgrade {
     width: clamp(200px, 35vw, 350px);
+    font-family: "Inter";
     line-height: .5;
+    border-radius: clamp(5px, 1vw, 15px);
+    border: solid black 3px;
+}
+#upgrade > h4 {
+    font-size: clamp(15px, 1.5vw, 20px);
+}
+#upgrade > h5 {
+    font-size: clamp(10px, 1vw, 15px);
 }
