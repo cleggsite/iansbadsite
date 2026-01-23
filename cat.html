@@ -35,7 +35,6 @@
     <button id="upgrade" onclick="meme()"><h4>Cat meme : <span id="mCount"></span></h4><h4><span id="mCost"></span></h4><h5>500 CPS</h5></button><br>
     <button id="upgrade" onclick="fat()"><h4>Fat cat : <span id="fatCount"></span></h4><h4><span id="fatCost"></span></h4><h5>2500 CPS</h5></button><br>
     <script>
-        localStorage.clear();
         var clicks = Number(localStorage.getItem('clicks')) || 0;
         clicks++;
         clicks--;
@@ -210,3 +209,4 @@
     </script>
 </body>
 </html>
+
