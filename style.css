@@ -12,17 +12,22 @@ body {
     );
     user-select: none;
     overflow-y: scroll;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0;
 }
 #nav {
-    position: fixed;
+    position: sticky;    
     top: 0;
+    z-index: 1000;
     left: 0;
     width: 100vw;
-    height: 70px;
+    height: clamp(65px,8vh,90px);
     background-color: black;
     display: flex;
     flex-direction: inline;
     z-index: 100;
+    box-shadow: 0px 0px 20px black;
 }
 #left {
     left: 0;
@@ -39,24 +44,25 @@ body {
     cursor: default;
 }
 #right {
+    top: 0;
     position: absolute;
     height: 70px;
     right: 0;
     user-select: none;
 }
 #right > a > button {
+    top: 0;
     text-align: center;
     padding-inline: clamp(11px,1.75vw,20px);
     color: white;
     font-size: clamp(10px,2vw,25px);
-    height: 100%;
+    height: clamp(65px,8vh,90px);
     background-color: transparent;
     border: none;
     font-family: "Inter";
     transition: 0.3s ease;
     background-color: black;
     border: none;
-    height: 100%;
     color: white;
 }
 #right > a > button:hover {
@@ -102,39 +108,300 @@ h2 {
     border-bottom-right-radius: clamp(20px,2vw,40px);
 }
 #catboi {
-    width: clamp(300px,50vw,500px);
-    border-radius: clamp(15px, 3vw, 30px);
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     padding: 0;
-    transition: 0.3s ease;
+    transition: transform 0.075s ease-in-out, filter 0.3s ease;
     transform-origin: center;
     filter: brightness(.95);
+    pointer-events: none;
 }
 #catboi:hover {
     filter: brightness(1.05);
-    transition: 0.3s ease;
-    cursor: pointer;
 }
 #catbutt {
-    border-radius: clamp(15px, 3vw, 30px);
-    padding: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
     transition: 0.1s ease-out;
+    padding: 0;
+    margin: 0;
+    background: none;
+    overflow: hidden;
+    border-top: 10px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+#catbutt:hover {  
+    cursor: url("./pointer.png") 37 21, pointer;
 }
 #upgrade {
-    width: clamp(200px, 35vw, 350px);
+    width: 100%;
     font-family: "Inter";
-    line-height: .5;
-    border-radius: clamp(5px, 1vw, 15px);
-    border: solid black 3px;
+    line-height: .5;/*
+    background: linear-gradient(135deg, #fdcfff, #fb82ff);
+    */
+    background: repeating-linear-gradient(
+        45deg,
+        rgb(255, 163, 240),
+        rgb(255, 163, 240) 50px,
+        rgb(255, 153, 230) 50px,
+        rgb(255, 153, 230) 100px
+    );
+    border-bottom: 10px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     transition: 0.3s ease;
+}
+.lupgrade {
+    border-bottom: none !important;
 }
 #upgrade > h4 {
     font-size: clamp(15px, 1.5vw, 20px);
+    line-height: 0.1;
 }
 #upgrade > h5 {
     font-size: clamp(10px, 1vw, 15px);
+    line-height: 0.1;
 }
 #upgrade:hover {
-    filter: brightness(0.9);
+    filter: brightness(1.1);
     transition: 0.3s ease;
     cursor: pointer;
+}
+#spacer {
+    height: clamp(10px, 2vh, 20px);
+}
+#smol-spacer {
+    line-height: .3;
+}
+#region {
+    width: 100vw;
+    height: calc(100vh - clamp(65px,8vh,90px));
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+#click-sec {
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%;
+    border-right: 10px solid black;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgb(255, 215, 163),
+        rgb(255, 215, 163) 50px,
+        rgb(255, 205, 153) 50px,
+        rgb(255, 205, 153) 100px
+    );
+}
+#click-sec-head {
+    font-size: clamp(25px,3.25vw,55px);
+    text-align: center;
+    margin-bottom: clamp(10px,2vh,30px);
+    line-height: .1;
+}
+#clicks {
+    font-size: clamp(20px,2.5vw,40px);
+    text-align: center;
+    margin-bottom: clamp(10px,2vh,30px);
+    line-height: .3;
+}
+#CPS {
+    font-size: clamp(17px,2vw,30px);
+    text-align: center;
+    line-height: .3;
+}
+#click-info {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#clicker {
+    flex: 0 0 70%;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+}
+#gamble-sec {
+    width: 33.3333%;
+    border-right: 10px solid black;
+    display: flex;  
+    flex-direction: column; 
+    align-items: center; 
+    background: repeating-linear-gradient(
+        45deg,
+        rgb(255, 153, 153),
+        rgb(255, 153, 153) 50px,
+        rgb(255, 163, 163) 50px,
+        rgb(255, 163, 163) 100px
+    );
+}
+#gamble-head {
+    font-size: clamp(25px,3.25vw,55px);
+    text-align: center;
+}
+#gamble-sub-head {
+    font-size: clamp(17px,1.75vw,30px);
+    text-align: center;
+}
+#wager {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 75%; 
+    height: 5px; 
+    background: #ececec; 
+    border-radius: 5px; 
+    outline: none;
+    margin: 0 auto;
+    border: 3px solid rgb(0, 0, 0);
+}
+#wager::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #bbbbbb;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid black;
+    transform: scale(1);
+    transform-origin: center;
+    transition: 0.3s ease;
+}
+#wager::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #bbbbbb;
+    border: 3px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1);
+    transform-origin: center;
+    transition: 0.3s ease;
+}
+#wager::-moz-range-thumb:hover {
+    background: #3ce482;
+    transform: scale(1.5);
+}
+#wager::-webkit-slider-thumb:hover {
+    background: #3ce482;
+    transform: scale(1.5);
+}
+#slide-val {
+    font-family: "Inter";
+    font-size: clamp(14px,1.4vw,25px);
+    line-height: 0.3;
+}
+#slide-cost {
+    font-family: "Inter";
+    font-size: clamp(14px,1.4vw,25px);
+}
+#smol {
+    line-height: 0.1;
+    font-weight: 650;
+}
+#bet-butt {
+    font-weight: 650;
+    font-family: "Inter";
+    width: 30%;
+    height: 10%;
+    appearance: none;
+    border: 5px solid black;
+    border-radius: 10px;
+    font-size: clamp(14px,1.4vw,25px);
+    transition: 0.3s ease;
+    transform-origin: center;
+    transform: scale(1);
+    filter: brightness(1);
+    background-color: rgb(255, 228, 228);
+}
+#bet-butt:hover {
+    transition: 0.3s ease;
+    transform: scale(1.08);
+    filter: brightness(1.2) !important;
+    cursor: pointer;
+}
+#die {
+    width: 20%;
+    transition: opacity 0.1s ease;
+}
+#gamble-desc {
+    line-height: 1;
+    font-weight: 650;
+    font-family: "Inter";
+    font-size: clamp(12px,1vw,15px);
+}
+#win {
+    position: absolute;
+    width: 33%;
+    height: calc(100vh - clamp(65px,8vh,90px));
+    background: linear-gradient(180deg, rgb(38, 99, 38),rgb(75, 194, 75),rgb(38, 99, 38));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Inter";
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 20px white;
+    opacity: 0;
+    pointer-events: none;
+}
+@keyframes win {
+    0%   { opacity: 0; text-shadow: 0 0 0 white; pointer-events: auto; }
+    12.5%  { opacity: .5; text-shadow: 0 0 20px white; pointer-events: auto; }
+    25%  { opacity: 1; text-shadow: 0 0 0 white; pointer-events: auto; }
+    37.5%  { opacity: 1; text-shadow: 0 0 20px white; pointer-events: auto; }
+    50% { opacity: 1; text-shadow: 0 0 0 white; pointer-events: auto; }
+    62.5%  { opacity: 1; text-shadow: 0 0 20px white; pointer-events: auto; }
+    75%  { opacity: 1; text-shadow: 0 0 0 white; pointer-events: auto; }
+    87.5%  { opacity: .5; text-shadow: 0 0 20px white; pointer-events: auto; }
+    100% { opacity: 0; text-shadow: 0 0 0 white; pointer-events: auto; }
+}
+.win {
+    animation: win 2s ease-out;
+}
+#loss {
+    position: absolute;
+    width: 33%;
+    height: calc(100vh - clamp(65px,8vh,90px));
+    background: linear-gradient(180deg, rgb(94, 28, 28),rgb(194, 57, 57),rgb(94, 28, 28));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Inter";
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 20px white;
+    opacity: 0;
+    pointer-events: none;
+}
+@keyframes loss {
+    0%   { opacity: 0; text-shadow: 0 0 0 white; pointer-events: auto;}
+    12.5%  { opacity: .5; text-shadow: 0 0 20px white; pointer-events: auto;}
+    25%  { opacity: 1; text-shadow: 0 0 0 white; }
+    37.5%  { opacity: 1; text-shadow: 0 0 20px white; pointer-events: auto;}
+    50% { opacity: 1; text-shadow: 0 0 0 white; pointer-events: auto; }
+    62.5%  { opacity: 1; text-shadow: 0 0 20px white; pointer-events: auto;}
+    75%  { opacity: 1; text-shadow: 0 0 0 white; pointer-events: auto;}
+    87.5%  { opacity: .5; text-shadow: 0 0 20px white; pointer-events: auto;}
+    100% { opacity: 0; text-shadow: 0 0 0 white; pointer-events: auto;}
+}
+.loss {
+    animation: loss 2s ease-out;
+}
+#auto-sec {
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%;
+    overflow-y: auto;
+    height: 100%;
 }
