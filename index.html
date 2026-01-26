@@ -12,23 +12,30 @@
 <body>
     <div id="nav">
         <div id="left">
-            <p id="title"><b>IAN CLEGG'S BAD SITE</b></p>
+            <p id="title"><b>CAT CLICKER</b></p>
         </div>
         <div id="right">
             <a href="index.html"><button><b>HOME</b></button></a>
-            <a href="contact.html"><button><b>CONTACT</b></button></a>
-            <a href="about.html"><button><b>ABOUT</b></button></a>
             <a href="cat.html"><button><b>CAT</b></button></a>
+            <a href="about.html"><button><b>CHANGELOG</b></button></a>
+            <a href="contact.html"><button><b>CONTACT</b></button></a>
         </div>
-    </div>
-    <br><br><br><br>
-    <h1>Hello there! This site is lowkey better.</h1>
+    </div><p id="smol-spacer"></p>
+    <h1>Hello there!</h1>
+    <h2><a href="cat.html">Cat Clicker</a></h2><p id="smol-spacer"></p>
     <div id="jerry-holder">
         <div id="welcome-jerry-holder">
             <h2>This is Jerry!</h2>
-            <p id="jerry-parry">Say hi</p>
+            <p id="jerry-parry" onclick="hellojerry()">Say hi</p>
         </div>
         <img src="sillyanimal.jpg" alt="silly squirrel" id="jerry">
     </div>
+    <p id="smol-spacer">&nbsp;</p>
+    <script>
+        function hellojerry() { 
+            document.getElementById("jerry-parry").innerHTML = "Hi Jerry!";
+        }
+    </script>
 </body>
 </html>
+
