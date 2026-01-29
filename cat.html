@@ -185,7 +185,14 @@
         document.getElementById("slide-cost").innerHTML = "$" + Math.floor(clicks*(wager.value/100)).toLocaleString("en-US");
         let rollInterval = null;
         rolling = false;
-        
+        const catButton = document.getElementById("catbutt");
+
+        // Prevent Enter/Space from triggering clicks
+        catButton.addEventListener("keydown", function(e) {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+            }
+        });
         function catClicked() {
             if (!rolling) {
                 document.getElementById("slide-cost").innerHTML = "$" + Math.floor(clicks*(wager.value/100)).toLocaleString("en-US");
@@ -576,4 +583,5 @@
     </script>
 </body>
 </html>
+
 
