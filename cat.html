@@ -82,6 +82,40 @@
     <h2>1/23/26 1:37pm : Added commas / button hovers</h2><p id="spacer">&nbsp;</p>
     -->
     <script>
+        const TAB_ID = crypto.randomUUID(); // Unique ID for this tab
+        const LOCK_KEY = "activeTab"; // Key to store active tab ID
+
+        function checkDuplicate() {
+            const activeTab = localStorage.getItem(LOCK_KEY);
+
+            if (activeTab && activeTab !== TAB_ID) {
+                // Duplicate detected
+                alert("Duplicate tab detected. This tab will be closed.");
+                // Attempt to close the tab
+                window.close();
+
+                // If the browser blocks close(), redirect to blank page
+                window.location.href = "about:blank";
+                return true;
+            } else {
+                // Set this tab as active
+                localStorage.setItem(LOCK_KEY, TAB_ID);
+                return false;
+            }
+        }
+
+        // Remove tab from lock on unload
+        window.addEventListener("beforeunload", () => {
+            const activeTab = localStorage.getItem(LOCK_KEY);
+            if (activeTab === TAB_ID) {
+                localStorage.removeItem(LOCK_KEY);
+            }
+        });
+
+        // Check for duplicates immediately
+        if (!checkDuplicate()) {
+            console.log("This tab is active. You can play safely.");
+        }
         function initLocalStorage(key, value) {
         if (localStorage.getItem(key) === null) {
             localStorage.setItem(key, value);
